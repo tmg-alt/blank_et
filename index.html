@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>blank_et.</title>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --bg-2: #f3efe9;
+      --paper: rgba(255,255,255,0.78);
+      --paper-soft: rgba(255,255,255,0.60);
+      --text: #5f5a55;
+      --muted: #8d877f;
+      --line: rgba(120,110,100,0.14);
+      --sea: #dbe5e7;
+      --sea-2: #e8efef;
+      --accent: #d9d2ca;
+      --shadow: 0 18px 48px rgba(120,110,100,0.08);
+      --radius: 30px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.82), transparent 36%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height: 1.9;
+      letter-spacing: 0.01em;
+    }
+
+    .wrap {
+      width: min(100%, 940px);
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px 0 40px;
+    }
+
+    .card {
+      width: 100%;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(232,239,239,0.8), rgba(255,255,255,0.22));
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: auto 24px 0 24px;
+      height: 1px;
+      background: rgba(255,255,255,0.56);
+    }
+
+    .hero-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.80) brightness(1.04) contrast(0.96);
+    }
+
+    .inner {
+      padding: 38px 26px 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.22em;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--paper-soft);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 68px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: 0.05em;
+    }
+
+    .lead {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 34em;
+    }
+
+    .section {
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      margin-bottom: 10px;
+      text-transform: lowercase;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .link-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.58);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.84);
+      border-color: rgba(120,110,100,0.18);
+    }
+
+    .link-title {
+      font-size: 15px;
+    }
+
+    .link-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .arrow {
+      color: var(--muted);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .gallery {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      display: block;
+      filter: saturate(0.84) brightness(1.03);
+      background: var(--sea-2);
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(232,239,239,0.42), rgba(255,255,255,0.42));
+      border: 1px solid rgba(120,110,100,0.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .inner { padding: 28px 18px 24px; }
+      .gallery { grid-template-columns: 1fr; }
+      .link-card { align-items: flex-start; }
+      h1 { letter-spacing: 0.03em; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <article class="card">
+        <div class="hero-image-wrap">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1400&q=80"
+            alt="手帳と机の風景"
+          />
+        </div>
+
+        <div class="inner">
+          <div class="eyebrow">small quiet place on the web</div>
+          <h1>blank_et.</h1>
+          <p class="lead">
+            ことば、写真、絵と日々の音。<br />
+            名前のないものを、そのまま置いています。
+          </p>
+
+          <section class="section">
+            <div class="section-title">about</div>
+            <p>
+              手帳時間、コーヒーが少し冷めるまでのあいだと、畑のある暮らし。<br />
+              そういう日々に救われています。
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-title">links</div>
+            <div class="links">
+              <a class="link-card" href="https://sizu.me/pucari" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <div class="link-title">しずかなインターネット</div>
+                  <div class="link-note">路地裏の喫茶のようなこの場所にいます</div>
+                </div>
+                <div class="arrow">↗</div>
+              </a>
+
+              <a class="link-card" href="https://tmg-alt.github.io/nami-wo-miteita/" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <div class="link-title">Webアプリ「波をみていた」</div>
+                  <div class="link-note">ごいっしょに浜辺ですこし座りませんか</div>
+                </div>
+                <div class="arrow">↗</div>
+              </a>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-title">glimpse</div>
+            <div class="gallery">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="カフェのコーヒー" />
+              <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=80" alt="ノートと万年筆" />
+            </div>
+            <div class="note">
+              キッチンのソファに座ったきみの手に まだあたたかなブルーのカップ
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-title">lately</div>
+            <p>
+              さいきんは、小型ラジオをテーブルの片隅に置いて、手帳を書きます
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-title">small things</div>
+            <div class="links">
+              <div class="link-card" style="cursor:default;">
+                <div>
+                  <div class="link-title">一眼レフ / コーヒー / 読みかけの本 / ノート </div>
+                  <div class="link-note">わたしのためのちいさな持ちもの</div>
+                </div>
+                <div class="arrow">·</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-title">updates</div>
+            <div class="links">
+              <div class="link-card" style="cursor:default;">
+                <div>
+                  <div class="link-title">2026.05　サイト公開</div>
+                </div>
+                <div class="arrow">·</div>
+              </div>
+              <div class="link-card" style="cursor:default;">
+                <div>
+                  <div class="link-title">2026.04　サイト移転</div>
+                </div>
+                <div class="arrow">·</div>
+              </div>
+              <div class="link-card" style="cursor:default;">
+                <div>
+                  <div class="link-title">2026.03　波をみていた公開</div>
+                </div>
+                <div class="arrow">·</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-title">contact</div>
+            <p>
+              ご連絡・ご感想などもしあれば、しずかなインターネットへどうぞ。
+            </p>
+          </section>
+
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
