@@ -1,147 +1,173 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>blanket</title>
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #3d3a36;
-      --sub: #7a746d;
-      --line: #d8d1c8;
-      --accent: #8c6f56;
-      --card: #fffdfa;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.9;
-      letter-spacing: 0.02em;
+      padding: 0;
+      background: #f4f1ea;
+      color: #3d3a36;
+      font-family: "MS PGothic", "Yu Gothic", sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 20px 80px;
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
     }
 
-    header {
-      margin-bottom: 40px;
+    .site-title {
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
     }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .site-desc {
+      color: #7d766d;
+      margin-bottom: 24px;
+      font-size: 13px;
     }
 
-    .desc {
-      color: var(--sub);
-      font-size: 0.95rem;
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
     }
 
-    nav {
-      margin-top: 16px;
-      font-size: 0.95rem;
+    .sidebar, .main {
+      background: #fffdf8;
+      border: 1px solid #d7d0c6;
+      padding: 16px;
     }
 
-    nav a {
-      color: var(--accent);
+    .sidebar h2,
+    .main h2 {
+      font-size: 14px;
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px dotted #c9c0b4;
+      letter-spacing: 0.06em;
+    }
+
+    .menu a {
+      display: block;
+      color: #7c5f46;
       text-decoration: none;
-      margin-right: 14px;
+      margin-bottom: 8px;
     }
 
-    nav a:hover {
+    .menu a:hover {
       text-decoration: underline;
     }
 
-    .note {
-      margin-bottom: 28px;
-      padding: 18px 18px 16px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
+    .mini {
+      font-size: 12px;
+      color: #7d766d;
+    }
+
+    .log {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dotted #d6cec2;
     }
 
     .date {
       display: block;
-      margin-bottom: 8px;
-      color: var(--sub);
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
+      font-size: 12px;
+      color: #8a8379;
+      margin-bottom: 4px;
     }
 
-    .text {
-      font-size: 1rem;
-      white-space: pre-wrap;
+    .update-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .update-list li {
+      margin-bottom: 6px;
     }
 
     footer {
-      margin-top: 48px;
-      color: var(--sub);
-      font-size: 0.85rem;
       text-align: center;
+      color: #8a8379;
+      font-size: 12px;
+      margin-top: 24px;
     }
 
-    @media (max-width: 480px) {
-      .wrap {
-        padding: 32px 14px 60px;
+    @media (max-width: 700px) {
+      .layout {
+        grid-template-columns: 1fr;
       }
 
-      h1 {
-        font-size: 1.7rem;
-      }
-
-      .note {
-        padding: 16px 14px 14px;
+      .site-title {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>blank_et.</h1>
-      <div class="desc">つむぎ ￤ ひとこと日記 ￤ 小さなメモ ￤ 生活の切れ端</div>
-      <nav>
-        <a href="https://sizu.me/pucari">home</a>
-      
-      </nav>
-    </header>
+  <div class="container">
+    <div class="site-title">blanket</div>
+    <div class="site-desc">つむぎ ￤ ひとこと日記 / 小さなメモ </div>
 
-    <main>
-      <article class="note">
-        <span class="date">2026.03.31</span>
-        <div class="text">雨。踏み台10分。息切れしたけど、始めただけでよしとしよう。</div>
-      </article>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>menu</h2>
+        <div class="menu">
+          <a href="https://sizu.me/pucari">top</a>
+          <a href="#">about</a>
+        </div>
 
-      <article class="note">
-        <span class="date">2026.03.31</span>
-        <div class="text">ひとこと日記の場所がほしいなと思ってた。これはそのはじまり。</div>
-      </article>
+        <h2>ひとこと</h2>
+        <div class="mini">
+          雨。踏み台10分。<br>
+          息切れしたけど開始しただけでえらい。
+        </div>
 
-      <article class="note">
-        <span class="date">2026.03.30</span>
-        <div class="text">おかゆを食べた。ヘルパーさんに料理のコツを教わった。</div>
-      </article>
+        <h2>update</h2>
+        <ul class="update-list mini">
+          <li>2026.03.31　サイトをつくりなおしました</li>
+          <li>2026.03.31　ひとこと日記を追加</li>
+          <li>2026.03.30　音声ページのことを考え中</li>
+        </ul>
+      </aside>
 
-      <article class="note">
-        <span class="date">2026.03.29</span>
-        <div class="text">昔の個人サイトみたいな場所が、またほしくなってきた。</div>
-      </article>
-    </main>
+      <main class="main">
+        <h2>log</h2>
+
+        <div class="log">
+          <span class="date">2026.03.31</span>
+          昔の個人サイトみたいな場所がほしくなって、また作りはじめた。<br>
+          日記というほどでもない、ひとことを置いていきたい。
+        </div>
+
+        <div class="log">
+          <span class="date">2026.03.31</span>
+          ゴミ出し完了。えらい。<br>
+          朝ごはんも食べた。今日は読書とAudibleの日にしたい。
+        </div>
+
+        <div class="log">
+          <span class="date">2026.03.30</span>
+          おかゆを食べた。<br>
+          胃が荒れていたので、それだけでよかった。
+        </div>
+
+        <div class="log">
+          <span class="date">2026.03.29</span>
+          一言日記を書ける場所に憧れている。<br>
+          タイトルがいらない、つぶやきの置き場みたいなもの。
+        </div>
+      </main>
+    </div>
 
     <footer>
-      blank_et. / private text site
+      since 2026 / blank_et.
     </footer>
   </div>
 </body>
