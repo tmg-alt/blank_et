@@ -3,318 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>blank_et.</title>
+  <title>blanket</title>
   <style>
     :root {
-      --bg: #f7f5f2;
-      --bg-2: #f3efe9;
-      --paper: rgba(255,255,255,0.78);
-      --paper-soft: rgba(255,255,255,0.60);
-      --text: #5f5a55;
-      --muted: #8d877f;
-      --line: rgba(120,110,100,0.14);
-      --sea: #dbe5e7;
-      --sea-2: #e8efef;
-      --accent: #d9d2ca;
-      --shadow: 0 18px 48px rgba(120,110,100,0.08);
-      --radius: 30px;
+      --bg: #f7f4ef;
+      --text: #3d3a36;
+      --sub: #7a746d;
+      --line: #d8d1c8;
+      --accent: #8c6f56;
+      --card: #fffdfa;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.82), transparent 36%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       line-height: 1.9;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
     }
 
     .wrap {
-      width: min(100%, 940px);
+      max-width: 720px;
       margin: 0 auto;
-      padding: 28px 20px 72px;
+      padding: 48px 20px 80px;
     }
 
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 28px 0 40px;
-    }
-
-    .card {
-      width: 100%;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      overflow: hidden;
-    }
-
-    .hero-image-wrap {
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(232,239,239,0.8), rgba(255,255,255,0.22));
-    }
-
-    .hero-image-wrap::after {
-      content: "";
-      position: absolute;
-      inset: auto 24px 0 24px;
-      height: 1px;
-      background: rgba(255,255,255,0.56);
-    }
-
-    .hero-image {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
-      filter: saturate(0.80) brightness(1.04) contrast(0.96);
-    }
-
-    .inner {
-      padding: 38px 26px 32px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.22em;
-      margin-bottom: 14px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--paper-soft);
-      border: 1px solid rgba(255,255,255,0.5);
+    header {
+      margin-bottom: 40px;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(34px, 7vw, 68px);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: 0.05em;
+      margin: 0 0 8px;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
-    .lead {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 34em;
+    .desc {
+      color: var(--sub);
+      font-size: 0.95rem;
     }
 
-    .section {
-      margin-top: 22px;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
+    nav {
+      margin-top: 16px;
+      font-size: 0.95rem;
     }
 
-    .section-title {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.18em;
-      margin-bottom: 10px;
-      text-transform: lowercase;
-    }
-
-    .links {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .link-card {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      padding: 16px 18px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.58);
+    nav a {
+      color: var(--accent);
       text-decoration: none;
-      color: inherit;
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      margin-right: 14px;
     }
 
-    .link-card:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.84);
-      border-color: rgba(120,110,100,0.18);
-    }
-
-    .link-title {
-      font-size: 15px;
-    }
-
-    .link-note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .arrow {
-      color: var(--muted);
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .gallery {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 12px;
-    }
-
-    .gallery img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      display: block;
-      filter: saturate(0.84) brightness(1.03);
-      background: var(--sea-2);
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .note {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(232,239,239,0.42), rgba(255,255,255,0.42));
-      border: 1px solid rgba(120,110,100,0.08);
-      color: var(--muted);
-      font-size: 13px;
+      margin-bottom: 28px;
+      padding: 18px 18px 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
     }
 
-    @media (max-width: 640px) {
-      .inner { padding: 28px 18px 24px; }
-      .gallery { grid-template-columns: 1fr; }
-      .link-card { align-items: flex-start; }
-      h1 { letter-spacing: 0.03em; }
+    .date {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--sub);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .text {
+      font-size: 1rem;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      margin-top: 48px;
+      color: var(--sub);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 32px 14px 60px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .note {
+        padding: 16px 14px 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <article class="card">
-        <div class="hero-image-wrap">
-          <img
-            class="hero-image"
-            src="export202511232347037320.png"
-            alt="イラスト"
-          />
-        </div>
+  <div class="wrap">
+    <header>
+      <h1>blank_et.</h1>
+      <div class="desc">ひとこと日記 ￤ 小さなメモ ￤ 生活の切れ端</div>
+      <nav>
+        <a href="#">home</a>
+        <a href="#">about</a>
+      </nav>
+    </header>
 
-        <div class="inner">
-          <div class="eyebrow">small quiet place on the web</div>
-          <h1>blank_et.</h1>
-          <p class="lead">
-            ことば、写真、絵と日々の音。<br />
-            名前のないものを、そのまま置いています。
-          </p>
-
-          <section class="section">
-            <div class="section-title">about</div>
-            <p>
-              手帳時間、コーヒーが少し冷めるまでのあいだと、畑のある暮らし。<br />
-              そういう日々に救われています。
-            </p>
-          </section>
-
-          <section class="section">
-            <div class="section-title">links</div>
-            <div class="links">
-              <a class="link-card" href="https://sizu.me/pucari" target="_blank" rel="noopener noreferrer">
-                <div>
-                  <div class="link-title">しずかなインターネット</div>
-                  <div class="link-note">路地裏の喫茶のようなこの場所にいます</div>
-                </div>
-                <div class="arrow">↗</div>
-              </a>
-
-              <a class="link-card" href="https://tmg-alt.github.io/nami-wo-miteita/" target="_blank" rel="noopener noreferrer">
-                <div>
-                  <div class="link-title">Webアプリ「波をみていた」</div>
-                  <div class="link-note">ごいっしょに浜辺ですこし座りませんか</div>
-                </div>
-                <div class="arrow">↗</div>
-              </a>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-title">glimpse</div>
-            <div class="gallery">
-              <img src="Notes_260109_162331_2(3).jpg" alt="" />
-              <img src="Notes_260109_162331_1(2).jpg" alt="" />
-            </div>
-            <div class="note">
-              キッチンのソファに座ったきみの手に まだあたたかなブルーのカップ
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-title">lately</div>
-            <p>
-              さいきんは、小型ラジオをテーブルの片隅に置いて、手帳を書きます
-            </p>
-          </section>
-
-          <section class="section">
-            <div class="section-title">small things</div>
-            <div class="links">
-              <div class="link-card" style="cursor:default;">
-                <div>
-                  <div class="link-title">一眼レフ / コーヒー / 読みかけの本 / ノート </div>
-                  <div class="link-note">わたしのためのちいさな持ちもの</div>
-                </div>
-                <div class="arrow">·</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-title">updates</div>
-            <div class="links">
-              <div class="link-card" style="cursor:default;">
-                <div>
-                  <div class="link-title">2026.05　サイト公開</div>
-                </div>
-                <div class="arrow">·</div>
-              </div>
-              <div class="link-card" style="cursor:default;">
-                <div>
-                  <div class="link-title">2026.04　サイト移転</div>
-                </div>
-                <div class="arrow">·</div>
-              </div>
-              <div class="link-card" style="cursor:default;">
-                <div>
-                  <div class="link-title">2026.03　波をみていた公開</div>
-                </div>
-                <div class="arrow">·</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-title">contact</div>
-            <p>
-              ご連絡・ご感想などもしあれば、しずかなインターネットへどうぞ。
-            </p>
-          </section>
-
-        </div>
+    <main>
+      <article class="note">
+        <span class="date">2026.03.31</span>
+        <div class="text">雨。踏み台10分。息切れしたけど、始めただけでよしとしよう。</div>
       </article>
-    </section>
-  </main>
+
+      <article class="note">
+        <span class="date">2026.03.31</span>
+        <div class="text">ひとこと日記の場所がほしいなと思ってた。これはそのはじまり。</div>
+      </article>
+
+      <article class="note">
+        <span class="date">2026.03.30</span>
+        <div class="text">おかゆを食べた。ヘルパーさんに料理のコツを教わった。</div>
+      </article>
+
+      <article class="note">
+        <span class="date">2026.03.29</span>
+        <div class="text">昔の個人サイトみたいな場所が、またほしくなってきた。</div>
+      </article>
+    </main>
+
+    <footer>
+      blank_et. / private text site
+    </footer>
+  </div>
 </body>
 </html>
