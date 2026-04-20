@@ -1,163 +1,76 @@
-<!DOCTYPE html>
-<html lang="ja">
+﻿<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>blank_et.</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #3d3a36;
-      --sub: #7a746d;
-      --accent: #8c6f56;
-      --line: #e8e2da;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-    }
-
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 56px 20px 80px;
-    }
-
-    header {
-      margin-bottom: 48px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .desc {
-      color: var(--sub);
-      font-size: 0.95rem;
-    }
-
-    nav {
-      margin-top: 16px;
-      font-size: 0.95rem;
-    }
-
-    nav a {
-      color: var(--accent);
-      text-decoration: none;
-      margin-right: 14px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .note {
-      padding: 0 0 24px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .date {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--sub);
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-    }
-
-    .text {
-      font-size: 1rem;
-      white-space: pre-wrap;
-    }
-
-    footer {
-      margin-top: 56px;
-      color: var(--sub);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    @media (max-width: 480px) {
-      .wrap {
-        padding: 36px 16px 60px;
-      }
-
-      h1 {
-        font-size: 1.7rem;
-      }
-
-      .note {
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-    }
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<title>blanket</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>blank_et.</h1>
-      <div class="desc">つむぎ￤<a href="https://sizu.me/pucari">メイン</a>￤小さなメモ￤生活の切れ端</div>
-      <nav>
-        <a href="https://sizu.me/pucari">home</a>
-      
-      </nav>
-    </header>
+	<header>
+		<h1 class="diary-name"><a href="index.html">blanket</a></h1>
+	</header>
 
-    <main>
-      <article class="note">
-        <span class="date">2026.04.13</span>
-        <div class="text">ローカルLLMの導入うまくいった</div>
-      </article>
+	<nav>
+		<div class="nav-yearly">
+			<a class="title" href="2026.html">2026</a>
+			<span class="disabled">1</span>
+			<span class="disabled">2</span>
+			<span class="disabled">3</span>
+			<a href="202604.html">4</a>
+			<a href="202605.html">5</a>
+			<span class="disabled">6</span>
+			<span class="disabled">7</span>
+			<span class="disabled">8</span>
+			<span class="disabled">9</span>
+			<span class="disabled">10</span>
+			<span class="disabled">11</span>
+			<span class="disabled">12</span>
+		</div>
+	</nav>
 
-      <article class="note">
-        <span class="date">2026.04.12</span>
-        <div class="text">Chill with Youとミニ・コージールームを購入。作業が捗る。</div>
-      </article>
+	<div class="index">
+		<h2 class="caption-year"><a href="2026.html">2026年</a></h2>
+		<div class="indent">
+			<h3 class="caption-month"><a href="202604.html">4月</a></h3>
+			<div class="indent">
+				<div class="topic">2026-04-08 <a href="202604.html#diary20260408">ハッピーバースデートゥーミー</a></div>
+				<div class="topic">2026-04-09 <a href="202604.html#diary20260409">ローカルサイトの楽しみ</a></div>
+				<div class="topic">2026-04-12 <a href="202604.html#diary20260412">ChatGPT飽きた</a></div>
+				<div class="topic">2026-04-13 <a href="202604.html#diary20260413">新しいカメラフィルター</a></div>
+				<div class="topic">2026-04-19 <a href="202604.html#diary20260419">いまさらの沼￤囚われのパルマ</a></div>
+			</div>
+			<h3 class="caption-month"><a href="202605.html">5月</a></h3>
+			<div class="indent">
+				<div class="topic">2026-05-08 <a href="202605.html#diary20260508">	</a></div>
+			</div>
+		</div>
+	</div>
 
-      <article class="note">
-        <span class="date">2026.04.08</span>
-        <div class="text">誕生日だー。PCが届きました。</div>
-      </article>
+	<nav>
+		<div class="nav-yearly">
+			<a class="title" href="2026.html">2026</a>
+			<span class="disabled">1</span>
+			<span class="disabled">2</span>
+			<span class="disabled">3</span>
+			<a href="202604.html">4</a>
+			<a href="202605.html">5</a>
+			<span class="disabled">6</span>
+			<span class="disabled">7</span>
+			<span class="disabled">8</span>
+			<span class="disabled">9</span>
+			<span class="disabled">10</span>
+			<span class="disabled">11</span>
+			<span class="disabled">12</span>
+		</div>
+	</nav>
 
-<article class="note">
-        <span class="date">2026.04.06</span>
-        <div class="text">PCを買ってしまった。自分の誕生日を自分で祝っていくスタイル。</div>
-      </article>
-      
-      <article class="note">
-        <span class="date">2026.03.31</span>
-        <div class="text">雨。スロジョグに行けないので、踏み台10分。</div>
-      </article>
+	<footer>
+		<div class="copyright">
+			&copy; 2026 <a href="index.html">blanket</a> All rights reserved.<br>
+			Powered by &copy; <a href="http://www.cc9.ne.jp/~pappara/wdiary.html">wDiary</a>
+		</div>
+	</footer>
 
-      <article class="note">
-        <span class="date">2026.03.31</span>
-        <div class="text">ひとこと日記の場所がほしいなと思っていた。これはそのはじまり。</div>
-      </article>
-
-      <article class="note">
-        <span class="date">2026.03.30</span>
-        <div class="text">おかゆを食べた。ヘルパーさんに料理のコツを教わった。</div>
-      </article>
-
-      <article class="note">
-        <span class="date">2026.03.29</span>
-        <div class="text">昔の個人サイトみたいな場所が、またほしくなってきた。</div>
-      </article>
-    </main>
-
-  </div>
 </body>
 </html>
