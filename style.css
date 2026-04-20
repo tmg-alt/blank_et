@@ -1,0 +1,519 @@
+@charset "UTF-8";
+/***************************************************************************************************
+ Default
+***************************************************************************************************/
+html, body, div, form {
+	margin: 0;
+	padding: 0; 
+	font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+}
+body {
+	width: 90%;
+	margin: 1em auto;
+	color: #333333;
+	line-height: 1.7;
+}
+a {
+	color: #0080c0;
+	text-decoration: underline;
+}
+a:visited  {
+	color: #0080c0;
+	text-decoration: underline;
+}
+a:hover {
+	color: #20a0e0;
+	text-decoration: underline;
+}
+a:active {
+	color: #20a0e0;
+	text-decoration: underline;
+}
+h1 {
+	margin: 0;
+	padding: 1em 0;
+	font-size: 220%;
+}
+h2 {
+	font-size: 160%;
+}
+h3 {
+	font-size: 130%;
+}
+h4 {
+	font-size: 100%;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+}
+th {
+	padding: 0.2em 0.5em;
+	border: 1px solid #aaaaaa;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	background-color: #f0f0f0;
+	background-color: rgba(0, 0, 0, 0.03);
+	font-size: 85%;
+	text-align: center;
+}
+td {
+	padding: 0 0.5em;
+	font-size: 85%;
+	border: 1px solid #aaaaaa;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+img,
+audio,
+video {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+p {
+	margin: 1em 0 1.7em 0;
+	padding: 0;
+}
+blockquote {
+	position: relative;
+	margin: 0.5em 0;
+	padding: 1em;
+	border: 1px solid #aaaaaa;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+hr {
+	height: 3px;
+	border: 0;
+	background-color: #aaaaaa;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+ul,
+ol,
+li {
+	margin: 0 0 0 1em;
+	padding: 0;
+}
+del {
+	color: #aaaaaa;
+}
+em {
+	color: #33aa33;
+	font-style: italic;
+	font-weight: normal;
+}
+strong {
+	color: #ff3333;
+	font-weight: bold;
+}
+strong > strong {
+	border-bottom: 1px solid #ff3333;
+}
+strong > strong > strong {
+	border-bottom: 3px double #ff3333;
+}
+mark {
+	border-radius: 5px;
+	background: #ffaaaa;
+	background: rgba(255, 0, 0, 0.3);
+}
+sup,
+sub {
+	font-size: 70%;
+}
+small {
+	font-size: 70%;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 2em;
+}
+
+
+
+/***************************************************************************************************
+ Layout
+***************************************************************************************************/
+.container {
+	float: left;
+	width: 100%;
+	margin-right: -240px;
+}
+.contents {
+	position: relative;
+	margin-right: 240px;
+	padding: 0 2em 4em 0;
+}
+.sidebar {
+	position: relative;
+	float: right;
+	width: 220px;
+}
+nav {
+	clear: both;
+	padding: 1em 0.5em 3em 2em;
+	text-align: left;
+}
+footer {
+	clear: both;
+	width: 100%;
+	text-align: right;
+}
+.noside .container {
+	width: 100%;
+	float: left;
+	margin-right: 0;
+}
+.noside .contents {
+	position: static;
+	margin: 0;
+	padding: 0 0 4em 0;
+}
+
+
+
+/***************************************************************************************************
+ Decoration
+***************************************************************************************************/
+/* ヘッダーの日記の名前 */
+header .diary-name {
+	color: #555555;
+}
+header .diary-name a {
+	color: #555555;
+	text-decoration: none;
+}
+
+/* 日記 */
+.contents article > h2 {
+	margin: 0 0 1em 0;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	border-width: 0 0 2px 0;
+	border-color: rgb(0, 128, 192);
+	border-color: rgba(0, 128, 192, 0.2);
+	border-style: solid;
+	color: #555555;
+	font-weight: bold;
+	font-size: 130%;
+}
+.diary-title-week {
+	font-weight: normal;
+	font-size: 70%;
+	vertical-align: middle;
+}
+.diary-title-week-sunday {
+	color: #ff3333;
+	font-weight: normal;
+	font-size: 70%;
+	vertical-align: middle;
+}
+.diary-title-week-saturday {
+	color: #0080c0;
+	font-weight: normal;
+	font-size: 70%;
+	vertical-align: middle;
+}
+.diary-title-holiday {
+	color: #ff3333;
+	font-weight: normal;
+	font-size: 70%;
+	vertical-align: middle;
+}
+.diary {
+	margin: 0 0 5em 2em;
+	padding: 0;
+	text-align: justify;
+	word-wrap: break-word;
+}
+.diary h3 {
+	margin: 1em 0 0.5em 0;
+	padding: 0.3em 0.5em;
+	border-width: 0 0 0 8px;
+	border-color: #0080c0;
+	border-style: solid;
+	color: #0080c0;
+	font-weight: bold;
+	font-size: 160%;
+}
+
+/* サイドバー */
+.sidebar .caption-side {
+	margin: 1em 0 1em 0;
+	padding: 0.5em 0;
+	border: 0;
+	font-weight: bold;
+}
+.sidebar section {
+	margin-bottom: 3em;
+}
+.sidebar section ul {
+	margin: 0 0 1em 0;
+}
+.sidebar section li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/* サイドバーの「カレンダー」 */
+.calendar {
+	margin-bottom: 1em;
+	font-size: 85%;
+}
+.calendar table {
+	border-collapse: separate;
+	border-spacing: 2px;
+	empty-cells: show;
+}
+.calendar th {
+	padding: 0.1em 0.4em;
+	border-width: 0;
+	background-color: transparent;
+	font-weight: normal;
+	text-align: center;
+}
+.calendar td {
+	width: 26px;
+	padding: 0;
+	border-width: 0;
+	text-align: center;
+}
+.calendar a {
+	display: inline-block;
+	width: 26px;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+}
+.calendar .wrote {
+	border-radius: 5px;
+	background-color: rgb(0, 128, 192);
+	background-color: rgba(0, 128, 192, 0.2);
+}
+.calendar .wrote a {
+	color: #0080c0;
+}
+.calendar .wrote:hover {
+	opacity: 0.5;
+}
+.calendar .sunday {
+	color: #ff3333;
+}
+.calendar .wrote-sunday {
+	border-radius: 5px;
+	background-color: rgb(255, 51, 51);
+	background-color: rgba(255, 51, 51, 0.2);
+}
+.calendar .wrote-sunday a {
+	color: #ff3333;
+}
+.calendar .wrote-sunday:hover {
+	opacity: 0.5;
+}
+.calendar .saturday {
+	color: #0080c0;
+}
+.calendar .wrote-saturday {
+	border-radius: 5px;
+	background-color: rgb(0, 128, 192);
+	background-color: rgba(0, 128, 192, 0.2);
+}
+.calendar .wrote-saturday a {
+	color: #0080c0;
+}
+.calendar .wrote-saturday:hover {
+	opacity: 0.5;
+}
+
+/* サイドバーの「アーカイブ」 */
+.archive {
+	font-size: 85%;
+}
+.archive .count {
+	opacity: 0.5;
+	padding-left: 0.5em;
+}
+
+/* ナビゲーション */
+.nav-yearly {
+	clear: both;
+	margin: 0.3em 0;
+	font-size: 75%;
+}
+.nav-yearly > a,
+.nav-yearly > span {
+	display: inline-block;
+	width: 30px;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+}
+.nav-yearly > .title {
+	width: 50px;
+}
+.nav-yearly > a {
+	background-color: rgb(0, 128, 192);
+	background-color: rgba(0, 128, 192, 0.2);
+}
+.nav-yearly > a:hover {
+	opacity: 0.5;
+}
+.nav-yearly > .disabled {
+	opacity: 0.5;
+}
+.nav-yearly > .current {
+	border-radius: 5px;
+	background-color: #0080c0;
+	color: #ffffff;
+}
+
+/* フッターの著作権表示 */
+.copyright {
+	margin: 0;
+	padding: 1em;
+	font-size: 85%;
+	text-align: right;
+}
+
+/* 目次ページ */
+.index {
+	margin: 0 0 4em 0;
+}
+.caption-year {
+	margin: 0;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	border-width: 0;
+	color: #555555;
+	font-weight: bold;
+	font-size: 160%;
+}
+.caption-year a {
+	text-decoration: none;
+}
+.caption-month {
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	color: #0080c0;
+	font-weight: bold;
+	font-size: 130%;
+}
+.caption-month a {
+	text-decoration: none;
+}
+.index .indent {
+	margin-left: 2em;
+}
+.index .topic {
+	overflow: hidden;
+	font-size: 85%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* リンク */
+.link-url {
+	color: #0088ff;
+}
+.link-mail {
+	color: #ff0088;
+}
+.link-path {
+	color: #ff8800;
+}
+.link-date {
+	color: #00aa00;
+}
+
+/* 印刷時の改ページ */
+.pagebreak {
+	page-break-before: always;
+}
+
+
+
+/***************************************************************************************************
+ Media Queries
+***************************************************************************************************/
+@media screen and (max-width: 720px) {
+	.contents {
+		margin: 0;
+		padding: 0 0 4em 0;
+	}
+	.sidebar {
+		display: none;
+	}
+	.nav-yearly > a,
+	.nav-yearly > span {
+		display: inline;
+		padding: 0 0.4em;
+		text-decoration: none;
+		text-align: left;
+	}
+}
+@media screen and (max-width: 480px) {
+	body {
+		width: 100%;
+		margin: 0;
+	}
+	nav {
+		margin: 0;
+		padding: 0.5em;
+	}
+	.noside .container {
+		width: 100%;
+		margin: 0;
+	}
+	.contents {
+		margin: 0 0 4em 0;
+		padding: 0.5em;
+	}
+	.noside .contents {
+		position: static;
+		margin: 0;
+		padding: 0.5em;
+	}
+	.diary-name {
+		padding: 0.5em;
+		font-weight: bold;
+		font-size: 120%;
+	}
+	.diary {
+		margin: 0;
+		padding: 0;
+	}
+	.sidebar {
+		display: none;
+	}
+	.index .indent {
+		margin-left: 1em;
+	}
+}
+@media print {
+	body {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.diary-name {
+		padding-top: 0;
+	}
+	.contents {
+		margin: 0;
+		padding: 0;
+	}
+	.sidebar,
+	nav,
+	footer {
+		display: none;
+	}
+	.diary {
+		margin: 0;
+		padding: 0 0 1em 2em;
+	}
+}
+
